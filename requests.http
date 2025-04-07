@@ -1,0 +1,90 @@
+# GET: Retrieve all users
+GET http://localhost:5129/users
+Accept: application/json
+Authorization: invalid-token
+
+###
+
+# GET: Retrieve a specific user by ID
+GET http://localhost:5129/users/1
+Accept: application/json
+Authorization: invalid-token
+###
+
+# POST: Add a new user
+POST http://localhost:5129/users
+Content-Type: application/json
+Authorization: invalid-token
+{
+  "name": "Alice Johnson",
+  "email": "alice.johnson@example.com"
+}
+
+###
+
+# PUT: Update an existing user's details
+PUT http://localhost:5129/users/1
+Content-Type: application/json
+Authorization: invalid-token
+{
+  "name": "Updated Name",
+  "email": "updated.email@example.com"
+}
+
+###
+
+# DELETE: Remove a user by ID
+DELETE http://localhost:5129/users/1
+Authorization: invalid-token
+###
+GET http://localhost:5129/simulate-error
+Authorization: invalid-token
+###
+GET http://localhost:5129/users -H "Authorization: invalid-token"
+
+###
+# GET: Retrieve all users
+GET http://localhost:5129/users
+Accept: application/json
+Authorization: valid-token
+
+###
+
+# GET: Retrieve a specific user by ID
+GET http://localhost:5129/users/1
+Accept: application/json
+Authorization: valid-token
+###
+
+# POST: Add a new user
+POST http://localhost:5129/users
+Content-Type: application/json
+Authorization: valid-token
+
+{
+  "name": "Alice Johnson",
+  "email": "alice.johnson@example.com"
+}
+
+###
+
+# PUT: Update an existing user's details
+PUT http://localhost:5129/users/1
+Content-Type: application/json
+Authorization: valid-token
+
+{
+  "name": "Updated Name",
+  "email": "updated.email@example.com"
+}
+
+###
+
+# DELETE: Remove a user by ID
+DELETE http://localhost:5129/users/1
+Authorization: valid-token
+###
+GET http://localhost:5129/simulate-error
+Authorization: valid-token
+###
+GET http://localhost:5129/users -H "Authorization: invalid-token"
